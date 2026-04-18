@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Install Pakt</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f5f6f8;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 28px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  }
+  .logo {
+    width: 96px;
+    height: 96px;
+    background: #2d5cf6;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 56px;
+    font-weight: 800;
+    color: #fff;
+    font-family: -apple-system, sans-serif;
+    letter-spacing: -2px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    color: #6b7280;
+    font-size: 15px;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .install-btn {
+    display: inline-block;
+    background: #2d5cf6;
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    width: 100%;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .install-btn:active {
+    background: #1e4ad9;
+    transform: scale(0.98);
+  }
+  .steps {
+    margin-top: 32px;
+    text-align: left;
+    background: #f5f6f8;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .steps h2 {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6b7280;
+    margin-bottom: 12px;
+  }
+  .steps ol {
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .steps ol li { margin-bottom: 4px; }
+  .note {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #9ca3af;
+    line-height: 1.5;
+  }
+  .non-ios {
+    display: none;
+    margin-top: 20px;
+    padding: 14px;
+    background: #fef3c7;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #92400e;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">P</div>
+    <h1>Install Pakt</h1>
+    <p class="subtitle">Add Pakt to your iPhone Home Screen for a full-screen, app-like experience.</p>
+
+    <a href="Pakt.mobileconfig" class="install-btn" id="installBtn">Install Profile</a>
+
+    <div class="non-ios" id="nonIosWarning">
+      ⚠️ Configuration profiles only work on iPhone and iPad. Please open this page in Safari on your iOS device.
+    </div>
+
+    <div class="steps">
+      <h2>How to install</h2>
+      <ol>
+        <li>Tap <strong>Install Profile</strong> above</li>
+        <li>Tap <strong>Allow</strong> when prompted</li>
+        <li>Open the <strong>Settings</strong> app</li>
+        <li>Tap <strong>Profile Downloaded</strong> at the top</li>
+        <li>Tap <strong>Install</strong> (top right) and enter your passcode</li>
+        <li>Find the Pakt icon on your Home Screen</li>
+      </ol>
+    </div>
+
+    <p class="note">Must be opened in Safari on iOS. The profile is unsigned and safe — it only adds a Home Screen shortcut.</p>
+  </div>
+
+<script>
+  // Show warning if not on iOS
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (!isIOS) {
+    document.getElementById('nonIosWarning').style.display = 'block';
+  }
+</script>
+</body>
+</html>
